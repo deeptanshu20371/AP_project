@@ -21,10 +21,11 @@ public class Game {
 
     @FXML
     void go_back(ActionEvent event) throws IOException {
-        Scene scene;
-        Parent root= FXMLLoader.load(getClass().getResource("Snakes_and_Ladders.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene= new Scene(root);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 700, 800);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Snakes and Ladders");
         stage.setScene(scene);
         stage.show();
     }

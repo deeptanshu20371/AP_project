@@ -6,8 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.game">
+<AnchorPane prefHeight="760.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Game">
    <children>
+      <ImageView fx:id="back_image" fitHeight="171.0" fitWidth="42.0" layoutX="37.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@back_button.jpeg" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="785.0" fitWidth="703.0" layoutY="-4.0" pickOnBounds="true">
          <image>
             <Image url="@background_final.jpeg" />
@@ -44,10 +49,5 @@
          </image>
       </ImageView>
       <Button fx:id="back_button" layoutX="37.0" layoutY="22.0" mnemonicParsing="false" onAction="#go_back" prefHeight="31.0" prefWidth="42.0" />
-      <ImageView fx:id="back_button" fitHeight="171.0" fitWidth="42.0" layoutX="37.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@back_button.jpeg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

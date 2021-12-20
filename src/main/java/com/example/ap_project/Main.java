@@ -1,5 +1,4 @@
 package com.example.ap_project;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,9 +14,7 @@ public class Main extends Application {
         stage.setTitle("Snakes and Ladders");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
+    }public static void main(String[] args) {
         launch();
     }
 }
