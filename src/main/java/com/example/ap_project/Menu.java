@@ -22,11 +22,14 @@ public class Menu {
 
     @FXML
     void exit(ActionEvent event) throws IOException{
-
+        Stage stg = (Stage) quit_button.getScene().getWindow();
+        stg.close();
     }
 
     @FXML
     void toGame(ActionEvent event) throws IOException {
+        Stage stg = (Stage) play_button.getScene().getWindow();
+        stg.close();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Snakes_and_Ladders.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 800);
         Stage stage = new Stage();

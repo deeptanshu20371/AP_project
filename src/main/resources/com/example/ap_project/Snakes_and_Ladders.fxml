@@ -4,50 +4,35 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Game">
+<AnchorPane prefHeight="600.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Game">
    <children>
-      <ImageView fx:id="back_image" fitHeight="171.0" fitWidth="42.0" layoutX="37.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="280.0" layoutX="-1.0">
          <image>
-            <Image url="@back_button.jpeg" />
+            <Image url="@background.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="785.0" fitWidth="703.0" layoutY="-4.0" pickOnBounds="true">
-         <image>
-            <Image url="@background_final.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="600.0" fitWidth="600.0" layoutX="51.0" layoutY="90.0" pickOnBounds="true">
-         <image>
-            <Image url="@background_grid.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="dice_button" layoutX="339.0" layoutY="730.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" scaleX="3.0" scaleY="3.0" text="Dice" textAlignment="CENTER">
-         <font>
-            <Font size="7.0" />
-         </font>
-      </Button>
-      <ImageView fx:id="Player1_button" fitHeight="77.0" fitWidth="143.0" layoutX="170.0" layoutY="707.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="83.0" layoutX="34.0" layoutY="471.0" preserveRatio="true">
          <image>
             <Image url="@Player1_button.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="Player2_button" fitHeight="71.0" fitWidth="143.0" layoutX="390.0" layoutY="707.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="80.0" layoutX="166.0" layoutY="472.0" preserveRatio="true">
          <image>
             <Image url="@Player2_button.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="77.0" fitWidth="156.0" layoutX="71.0" layoutY="669.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="34.0" fitWidth="72.0" layoutX="24.0" layoutY="435.0" preserveRatio="true">
          <image>
             <Image url="@Player2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="77.0" fitWidth="170.0" layoutX="-58.0" layoutY="669.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="43.0" fitWidth="71.0" layoutX="-32.0" layoutY="435.0" preserveRatio="true">
          <image>
             <Image url="@Player1.png" />
          </image>
       </ImageView>
-      <Button fx:id="back_button" layoutX="37.0" layoutY="22.0" mnemonicParsing="false" onAction="#go_back" prefHeight="31.0" prefWidth="42.0" />
+      <Button fx:id="dice_button" layoutX="115.0" layoutY="465.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Dice" />
+      <Button fx:id="back_button" layoutX="13.0" layoutY="50.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#go_back" opacity="0.0" prefHeight="15.0" prefWidth="18.0" text="Button" />
    </children>
 </AnchorPane>

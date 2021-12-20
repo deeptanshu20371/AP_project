@@ -21,6 +21,8 @@ public class Game {
 
     @FXML
     void go_back(ActionEvent event) throws IOException {
+        Stage stg = (Stage) back_button.getScene().getWindow();
+        stg.close();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 800);
         Stage stage = new Stage();
