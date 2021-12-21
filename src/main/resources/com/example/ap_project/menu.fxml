@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="189.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Menu">
+<AnchorPane prefHeight="600.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Menu">
     <children>
-        <ImageView fitHeight="400.0" fitWidth="191.0" layoutX="1.0">
+        <ImageView fitHeight="600.0" fitWidth="286.0" layoutX="1.0">
             <image>
                 <Image url="@menu.jpg" />
             </image>
         </ImageView>
-        <Button fx:id="play_button" layoutX="39.0" layoutY="175.0" mnemonicParsing="false" onAction="#toGame" opacity="0.0" prefHeight="25.0" prefWidth="116.0" text="Play" />
-        <Button fx:id="quit_button" layoutX="61.0" layoutY="334.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="76.0" text="QUIT" textFill="#ce0000">
+        <Button fx:id="play_button" layoutX="57.0" layoutY="262.0" mnemonicParsing="false" onAction="#toGame" opacity="0.0" prefHeight="39.0" prefWidth="175.0" text="Play" />
+        <Button fx:id="quit_button" layoutX="115.0" layoutY="507.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="76.0" text="QUIT" textFill="#ce0000">
             <font>
                 <Font name="Arial Bold" size="12.0" />
             </font>

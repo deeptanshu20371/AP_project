@@ -31,7 +31,7 @@ public class Menu {
         Stage stg = (Stage) play_button.getScene().getWindow();
         stg.close();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Snakes_and_Ladders.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 279, 600);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Snakes and Ladders");

@@ -5,9 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Game">
+<AnchorPane prefHeight="600.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_project.Game">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="280.0" layoutX="-1.0">
+      <ImageView fitHeight="600.0" fitWidth="280.0" layoutX="-1.0" layoutY="1.0">
          <image>
             <Image url="@background.jpeg" />
          </image>
@@ -22,17 +22,17 @@
             <Image url="@Player2_button.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="34.0" fitWidth="72.0" layoutX="24.0" layoutY="435.0" preserveRatio="true">
+      <ImageView fx:id="player1" fitHeight="36.0" fitWidth="74.0" layoutX="21.0" layoutY="439.0" preserveRatio="true">
          <image>
             <Image url="@Player2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="43.0" fitWidth="71.0" layoutX="-32.0" layoutY="435.0" preserveRatio="true">
+      <ImageView fx:id="player2" fitHeight="43.0" fitWidth="71.0" layoutX="-32.0" layoutY="439.0" preserveRatio="true">
          <image>
             <Image url="@Player1.png" />
          </image>
       </ImageView>
-      <Button fx:id="dice_button" layoutX="115.0" layoutY="465.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Dice" />
+      <Button fx:id="dice_button" layoutX="115.0" layoutY="465.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#dice_roll" prefHeight="50.0" prefWidth="50.0" text="Dice" />
       <Button fx:id="back_button" layoutX="13.0" layoutY="50.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#go_back" opacity="0.0" prefHeight="15.0" prefWidth="18.0" text="Button" />
    </children>
 </AnchorPane>
