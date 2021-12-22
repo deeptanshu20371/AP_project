@@ -1,6 +1,7 @@
 package com.example.ap_project;
 
 import javafx.animation.Interpolator;
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -50,19 +51,149 @@ public class Player {
         up.play();
     }
     public void move(int n){
-        int done;
-        //System.out.println(pos);
-        for (done=0;done<1;done++){
-            if ((pos - (20 * (pos / 20))) == 0 || (pos - (20 * (pos / 20))) == 10) {
-                this.move_up();
-            } else if ((pos - (20 * (pos / 20))) < 10) {
-                this.move_right(1);
-            } else {
-                this.move_left(1);
+        int i;
+        boolean right;
+        int remainder= pos- (20*(pos/20));
+        int remaining=n;
+        if (remainder==0){
+            TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
+            up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+            up.setByY(-35);
+            up.setAutoReverse(false);
+            pos=pos+n;
+            if (n==1){
+                up.play();
+            }
+            else{
+                n=n-1;
+                TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
+                left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+                left.setByX(25*n);
+                left.setAutoReverse(false);
+                SequentialTransition total= new SequentialTransition(up,left);
+                total.play();
             }
         }
-        pos++;
+        else if ((remainder)<10){
+            right=true;
+            TranslateTransition side=new TranslateTransition(Duration.millis(500),this.id);
+            side.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+
+            if ((10-remainder)<num) {
+                side.setByX(25 * (10 - remainder));
+                side.setDelay(Duration.millis(500));
+                side.setAutoReverse(false);
+                System.out.println("oog");
+                remaining=remaining-(10-remainder);
+                pos=pos+(10-remainder);
+                if (remaining==0){
+                    System.out.println("ooga");
+                    side.play();
+                    return;
+                }
+                else{
+                    System.out.println("ooga booga");
+                    TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
+                    up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+                    up.setByY(-35);
+                    up.setAutoReverse(false);
+                    pos++;
+                    remaining--;
+                    if (remaining==0){
+                        System.out.println("ooga");
+                        SequentialTransition total= new SequentialTransition(side,up);
+                        total.play();
+                        return;
+                    }
+                    else{
+                        TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
+                        left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+                        left.setByX(-25*remaining);
+                        left.setAutoReverse(false);
+                        SequentialTransition total= new SequentialTransition(side,up,left);
+                        total.play();
+                        pos=pos+remaining;
+                    }
+                }
+            }
+            else{
+                side.setByX(25 * num);
+                side.setAutoReverse(false);
+                side.play();
+                pos=pos+num;
+            }
+        }
+        else if ((remainder)>10){
+            right=false;
+            TranslateTransition side=new TranslateTransition(Duration.millis(500),this.id);
+            side.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+
+            if ((20-remainder)<num) {
+                side.setByX(-25 * (20 - remainder));
+                side.setDelay(Duration.millis(500));
+                side.setAutoReverse(false);
+                System.out.println("oog");
+                remaining=remaining-(20-remainder);
+                pos=pos+(20-remainder);
+                if (remaining==0){
+                    System.out.println("ooga");
+                    side.play();
+                    return;
+                }
+                else{
+                    System.out.println("ooga booga");
+                    TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
+                    up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+                    up.setByY(-35);
+                    up.setAutoReverse(false);
+                    pos++;
+                    remaining--;
+                    if (remaining==0){
+                        System.out.println("ooga");
+                        SequentialTransition total= new SequentialTransition(side,up);
+                        total.play();
+                        return;
+                    }
+                    else{
+                        TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
+                        left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+                        left.setByX(25*remaining);
+                        left.setAutoReverse(false);
+                        SequentialTransition total= new SequentialTransition(side,up,left);
+                        total.play();
+                        pos=pos+remaining;
+                    }
+                }
+            }
+            else{
+                side.setByX(-25 * num);
+                side.setAutoReverse(false);
+                side.play();
+                pos=pos+num;
+            }
+        }
+        else{
+            TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
+            up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+            up.setByY(-35);
+            up.setAutoReverse(false);
+            pos=pos+n;
+            if (n==1){
+                up.play();
+            }
+            else{
+                n=n-1;
+                TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
+                left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
+                left.setByX(-25*n);
+                left.setAutoReverse(false);
+                SequentialTransition total= new SequentialTransition(up,left);
+                total.play();
+            }
+        }
+        System.out.println(pos);
     }
+
     public void ladder_check(){
         if (pos==4){
             pos=25;
