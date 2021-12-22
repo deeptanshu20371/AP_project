@@ -69,8 +69,6 @@ public class Game implements Initializable {
         }
         else{
             curr.move(random);
-            //curr.ladder_check();
-            //curr.snake_check();
         }
         if (curr== p1){
             curr=p2;

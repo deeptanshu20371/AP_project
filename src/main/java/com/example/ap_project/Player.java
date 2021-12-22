@@ -62,7 +62,8 @@ public class Player {
             up.setAutoReverse(false);
             pos=pos+n;
             if (n==1){
-                up.play();
+                SequentialTransition total= new SequentialTransition(up,snakes_ladder());
+                total.play();
             }
             else{
                 n=n-1;
@@ -70,7 +71,7 @@ public class Player {
                 left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                 left.setByX(25*n);
                 left.setAutoReverse(false);
-                SequentialTransition total= new SequentialTransition(up,left);
+                SequentialTransition total= new SequentialTransition(up,left,snakes_ladder());
                 total.play();
             }
         }
@@ -88,7 +89,8 @@ public class Player {
                 pos=pos+(10-remainder);
                 if (remaining==0){
                     System.out.println("ooga");
-                    side.play();
+                    SequentialTransition total= new SequentialTransition(side,snakes_ladder());
+                    total.play();
                     return;
                 }
                 else{
@@ -101,7 +103,7 @@ public class Player {
                     remaining--;
                     if (remaining==0){
                         System.out.println("ooga");
-                        SequentialTransition total= new SequentialTransition(side,up);
+                        SequentialTransition total= new SequentialTransition(side,up,snakes_ladder());
                         total.play();
                         return;
                     }
@@ -110,17 +112,18 @@ public class Player {
                         left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                         left.setByX(-25*remaining);
                         left.setAutoReverse(false);
-                        SequentialTransition total= new SequentialTransition(side,up,left);
-                        total.play();
                         pos=pos+remaining;
+                        SequentialTransition total= new SequentialTransition(side,up,left,snakes_ladder());
+                        total.play();
                     }
                 }
             }
             else{
                 side.setByX(25 * num);
                 side.setAutoReverse(false);
-                side.play();
                 pos=pos+num;
+                SequentialTransition total=new SequentialTransition(side,snakes_ladder());
+                total.play();
             }
         }
         else if ((remainder)>10){
@@ -137,7 +140,8 @@ public class Player {
                 pos=pos+(20-remainder);
                 if (remaining==0){
                     System.out.println("ooga");
-                    side.play();
+                    SequentialTransition total=new SequentialTransition(side,snakes_ladder());
+                    total.play();
                     return;
                 }
                 else{
@@ -150,7 +154,7 @@ public class Player {
                     remaining--;
                     if (remaining==0){
                         System.out.println("ooga");
-                        SequentialTransition total= new SequentialTransition(side,up);
+                        SequentialTransition total= new SequentialTransition(side,up,snakes_ladder());
                         total.play();
                         return;
                     }
@@ -159,9 +163,9 @@ public class Player {
                         left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                         left.setByX(25*remaining);
                         left.setAutoReverse(false);
-                        SequentialTransition total= new SequentialTransition(side,up,left);
-                        total.play();
                         pos=pos+remaining;
+                        SequentialTransition total= new SequentialTransition(side,up,left,snakes_ladder());
+                        total.play();
                     }
                 }
             }
@@ -179,7 +183,8 @@ public class Player {
             up.setAutoReverse(false);
             pos=pos+n;
             if (n==1){
-                up.play();
+                SequentialTransition total = new SequentialTransition(up,snakes_ladder());
+                total.play();
             }
             else{
                 n=n-1;
@@ -187,104 +192,105 @@ public class Player {
                 left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                 left.setByX(-25*n);
                 left.setAutoReverse(false);
-                SequentialTransition total= new SequentialTransition(up,left);
+                SequentialTransition total= new SequentialTransition(up,left,snakes_ladder());
                 total.play();
             }
         }
         System.out.println(pos);
     }
 
-    public void ladder_check(){
+    public TranslateTransition snakes_ladder(){
         if (pos==4){
             pos=25;
-            move_blocks(1,2);
+            return move_blocks(1,2);
         }
         else if (pos==8){
             pos=31;
-            move_blocks(2,3);
+            return move_blocks(2,3);
         }
         else if (pos==28){
             pos=46;
-            move_blocks(-2,2);
+            return move_blocks(-2,2);
         }
         else if (pos==21){
             pos=60;
-            move_blocks(0,3);
+            return move_blocks(0,3);
         }
         else if (pos==32){
             pos=48;
-            move_blocks(-1,1);
+            return move_blocks(-1,1);
         }
         else if (pos==42){
             pos=80;
-            move_blocks(-1,3);
+            return move_blocks(-1,3);
         }
         else if (pos==52){
             pos=68;
-            move_blocks(-1,1);
+            return move_blocks(-1,1);
         }
         else if (pos==58){
             pos=77;
-            move_blocks(1,2);
+            return move_blocks(1,2);
         }
         else if (pos==69){
             pos=93;
-            move_blocks(-1,3);
+            return move_blocks(-1,3);
         }
         else if (pos==84){
             pos=98;
-            move_blocks(-1,1);
+            return move_blocks(-1,1);
         }
-    }
-    public void snake_check(){
-        if (pos==11){
+        else if (pos==11){
             pos=9;
-            move_blocks(-1,-1);
+            return move_blocks(-1,-1);
         }
         else if (pos==36){
             pos=14;
-            move_blocks(2,-2);
+            return move_blocks(2,-2);
         }
         else if (pos==43){
             pos=22;
-            move_blocks(-1,-2);
+            return move_blocks(-1,-2);
         }
         else if (pos==56){
             pos=18;
-            move_blocks(-2,-4);
+            return move_blocks(-2,-4);
         }
         else if (pos==75){
             pos=54;
-            move_blocks(1,-2);
+            return move_blocks(1,-2);
         }
         else if (pos==81){
             pos=63;
-            move_blocks(2,-2);
+            return move_blocks(2,-2);
         }
         else if (pos==90){
             pos=50;
-            move_blocks(0,-4);
+            return move_blocks(0,-4);
         }
         else if (pos==94){
             pos=53;
-            move_blocks(1,-4);
+            return move_blocks(1,-4);
         }
         else if (pos==96){
             pos=65;
-            move_blocks(0,-3);
+            return move_blocks(0,-3);
         }
         else if (pos==99){
             pos=78;
-            move_blocks(1,-2);
+            return move_blocks(1,-2);
+        }
+        else{
+            return move_blocks(0,0);
         }
     }
 
-    public void move_blocks(int right, int up){
+    public TranslateTransition move_blocks(int right, int up){
         TranslateTransition ladder=new TranslateTransition(Duration.millis(500),this.id);
         ladder.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
         ladder.setByX(25*right);
         ladder.setByY(-36*up);
         ladder.setAutoReverse(false);
-        ladder.play();
+        return ladder;
     }
 }
