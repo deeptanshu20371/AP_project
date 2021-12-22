@@ -12,12 +12,12 @@
             <Image url="@background.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="83.0" layoutX="34.0" layoutY="471.0" preserveRatio="true">
+      <ImageView fx:id="p1_indicator" fitHeight="40.0" fitWidth="83.0" layoutX="34.0" layoutY="471.0" preserveRatio="true">
          <image>
             <Image url="@Player1_button.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="80.0" layoutX="166.0" layoutY="472.0" preserveRatio="true">
+      <ImageView fx:id="p2_indicator" fitHeight="40.0" fitWidth="80.0" layoutX="166.0" layoutY="472.0" preserveRatio="true">
          <image>
             <Image url="@Player2_button.jpeg" />
          </image>

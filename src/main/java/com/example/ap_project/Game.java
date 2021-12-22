@@ -10,11 +10,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +32,10 @@ public class Game implements Initializable {
     ImageView player1;
     @FXML
     ImageView player2;
+    @FXML
+    ImageView p1_indicator;
+    @FXML
+    ImageView p2_indicator;
     Player p1;
     Player p2;
     Player curr;
@@ -66,9 +72,13 @@ public class Game implements Initializable {
         }
         if (curr== p1){
             curr=p2;
+            //p1_indicator.setImage(new Image("@p1_off.jpeg"));
+            //p2_indicator.setImage(new Image("@Player2_button.jpeg"));
         }
         else{
             curr=p1;
+            //p1_indicator.setImage(new Image("@Player1_button.jpeg"));
+            //p2_indicator.setImage(new Image("@p2_off.jpeg"));
         }
     }
 
