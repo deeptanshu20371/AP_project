@@ -129,12 +129,13 @@ public class Player {
                     pos++;
                     remaining--;
                     if (remaining==0){
-                        System.out.println("ooga");
+                        System.out.println("monke");
                         SequentialTransition total= new SequentialTransition(side,up,snakes_ladder());
                         total.play();
                         return;
                     }
                     else{
+                        System.out.println("Reached "+remaining);
                         TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
                         left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                         left.setByX(25*remaining);
@@ -146,7 +147,7 @@ public class Player {
                 }
             }
             else{
-                side.setByX(-25 * n);
+                side.setByX(-25 * remaining);
                 side.setAutoReverse(false);
                 pos=pos+remaining;
                 SequentialTransition total= new SequentialTransition(side,snakes_ladder());
@@ -176,7 +177,7 @@ public class Player {
         System.out.println(pos);
     }
 
-    public TranslateTransition snakes_ladder(){
+    private TranslateTransition snakes_ladder(){
         if (pos==4){
             pos=25;
             return move_blocks(1,2);
@@ -262,7 +263,7 @@ public class Player {
         }
     }
 
-    public TranslateTransition move_blocks(int right, int up){
+    private TranslateTransition move_blocks(int right, int up){
         TranslateTransition ladder=new TranslateTransition(Duration.millis(500),this.id);
         ladder.setByX(25*right);
         ladder.setByY(-36*up);

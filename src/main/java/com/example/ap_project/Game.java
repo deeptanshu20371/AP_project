@@ -30,16 +30,16 @@ public class Game implements Initializable {
     @FXML
     private Button back_button;
     @FXML
-    ImageView player1;
+    private ImageView player1;
     @FXML
-    ImageView player2;
+    private ImageView player2;
     @FXML
-    ImageView p1_indicator;
+    private ImageView p1_indicator;
     @FXML
-    ImageView p2_indicator;
-    Player p1;
-    Player p2;
-    Player curr;
+    private ImageView p2_indicator;
+    private Player p1;
+    private Player p2;
+    private Player curr;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,7 +49,7 @@ public class Game implements Initializable {
     }
 
     @FXML
-    void go_back(ActionEvent event) throws IOException {
+    private void go_back(ActionEvent event) throws IOException {
         Stage stg = (Stage) back_button.getScene().getWindow();
         stg.close();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Menu.fxml"));
@@ -72,7 +72,25 @@ public class Game implements Initializable {
                 }
                 if ((100-curr.pos)==random){
                     curr.move(random);
-                    System.out.println("winner ooga booga");
+                    if(curr.num == 2){
+                        System.out.println("winner ooga booga");
+                        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("winner2.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load(), 280, 600);
+                        Stage stage = new Stage();
+                        stage.setTitle("Winner");
+                        stage.setScene(scene);
+                        stage.show();
+                        System.out.println("winner ooga booga");
+                    } else{
+                        System.out.println("winner ooga booga");
+                        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("winner1.fxml"));
+                        Scene scene = new Scene(fxmlLoader.load(), 280, 600);
+                        Stage stage = new Stage();
+                        stage.setTitle("Winner");
+                        stage.setScene(scene);
+                        stage.show();
+                        System.out.println("winner ooga booga");
+                    }
                 }
             }
             else{
