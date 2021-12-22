@@ -69,6 +69,8 @@ public class Game implements Initializable {
         }
         else{
             curr.move(random);
+            curr.ladder_check();
+            curr.snake_check();
         }
         if (curr== p1){
             curr=p2;
@@ -81,6 +83,5 @@ public class Game implements Initializable {
             //p2_indicator.setImage(new Image("@p2_off.jpeg"));
         }
     }
-
 
 }
