@@ -16,7 +16,6 @@ public class Menu {
     @FXML
     private Button play_button;
 
-
     @FXML
     private Button quit_button;
 

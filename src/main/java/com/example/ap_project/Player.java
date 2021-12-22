@@ -64,7 +64,6 @@ public class Player {
                 side.setByX(25 * (10 - remainder));
                 side.setDelay(Duration.millis(500));
                 side.setAutoReverse(false);
-                System.out.println("oog");
                 remaining=remaining-(10-remainder);
                 pos=pos+(10-remainder);
                 if (remaining==0){
@@ -80,7 +79,6 @@ public class Player {
                     pos++;
                     remaining--;
                     if (remaining==0){
-                        System.out.println("ooga");
                         SequentialTransition total= new SequentialTransition(side,up,snakes_ladder());
                         total.play();
                         return;
@@ -111,17 +109,14 @@ public class Player {
                 side.setByX(-25 * (20 - remainder));
                 side.setDelay(Duration.millis(500));
                 side.setAutoReverse(false);
-                System.out.println("oog");
                 remaining=remaining-(20-remainder);
                 pos=pos+(20-remainder);
                 if (remaining==0){
-                    System.out.println("ooga");
                     SequentialTransition total=new SequentialTransition(side,snakes_ladder());
                     total.play();
                     return;
                 }
                 else{
-                    System.out.println("ooga booga");
                     TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
                     up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                     up.setByY(-35);
@@ -129,13 +124,11 @@ public class Player {
                     pos++;
                     remaining--;
                     if (remaining==0){
-                        System.out.println("monke");
                         SequentialTransition total= new SequentialTransition(side,up,snakes_ladder());
                         total.play();
                         return;
                     }
                     else{
-                        System.out.println("Reached "+remaining);
                         TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
                         left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                         left.setByX(25*remaining);
@@ -174,7 +167,6 @@ public class Player {
                 total.play();
             }
         }
-        System.out.println(pos);
     }
 
     private TranslateTransition snakes_ladder(){

@@ -12,12 +12,12 @@
             <Image url="@background.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="p1_indicator" fitHeight="40.0" fitWidth="83.0" layoutX="34.0" layoutY="471.0" preserveRatio="true">
+      <ImageView fx:id="p1_off" fitHeight="40.0" fitWidth="83.0" layoutX="34.0" layoutY="471.0" preserveRatio="true">
          <image>
             <Image url="@p1_off.jpeg" />
          </image>
       </ImageView>
-      <ImageView fx:id="p2_indicator" fitHeight="40.0" fitWidth="80.0" layoutX="166.0" layoutY="472.0" preserveRatio="true">
+      <ImageView fx:id="p2_on" fitHeight="40.0" fitWidth="80.0" layoutX="166.0" layoutY="472.0" preserveRatio="true">
          <image>
             <Image url="@Player2_button.jpeg" />
          </image>
@@ -32,7 +32,47 @@
             <Image url="@Player1.png" />
          </image>
       </ImageView>
-      <Button fx:id="dice_button" layoutX="115.0" layoutY="465.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#dice_roll" prefHeight="50.0" prefWidth="50.0" text="Dice" />
       <Button fx:id="back_button" layoutX="13.0" layoutY="50.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#go_back" opacity="0.0" prefHeight="15.0" prefWidth="18.0" text="Button" />
+      <ImageView fx:id="p2_off" fitHeight="40.0" fitWidth="82.0" layoutX="165.0" layoutY="471.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@p2_off.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="p1_on" fitHeight="40.0" fitWidth="82.0" layoutX="34.0" layoutY="472.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Player1_button.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="one" fitHeight="26.0" fitWidth="38.0" layoutX="127.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dice_images/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="two" fitHeight="28.0" fitWidth="28.0" layoutX="126.0" layoutY="478.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dice_images/2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="three" fitHeight="28.0" fitWidth="28.0" layoutX="126.0" layoutY="478.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dice_images/3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="four" fitHeight="28.0" fitWidth="28.0" layoutX="126.0" layoutY="478.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dice_images/4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="five" fitHeight="28.0" fitWidth="28.0" layoutX="126.0" layoutY="478.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dice_images/5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="six" fitHeight="28.0" fitWidth="28.0" layoutX="126.0" layoutY="478.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Dice_images/6.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="dice_button" layoutX="115.0" layoutY="465.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#dice_roll" opacity="0.0" prefHeight="50.0" prefWidth="50.0" text="Dice" />
    </children>
 </AnchorPane>
