@@ -9,7 +9,7 @@ import javafx.util.Duration;
 
 public class Player {
     @FXML
-    final ImageView id;
+    private ImageView id;
     int pos;
     int num;
     boolean first_roll;
