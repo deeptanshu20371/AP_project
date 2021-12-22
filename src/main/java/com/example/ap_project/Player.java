@@ -229,34 +229,34 @@ public class Player {
             pos=22;
             return move_blocks(-1,-2);
         }
-//        else if (pos==56){
-//            pos=18;
-//            return move_blocks(-2,-4);
-//        }
-//        else if (pos==75){
-//            pos=54;
-//            return move_blocks(1,-2);
-//        }
-//        else if (pos==81){
-//            pos=63;
-//            return move_blocks(2,-2);
-//        }
-//        else if (pos==90){
-//            pos=50;
-//            return move_blocks(0,-4);
-//        }
-//        else if (pos==94){
-//            pos=53;
-//            return move_blocks(1,-4);
-//        }
-//        else if (pos==96){
-//            pos=65;
-//            return move_blocks(0,-3);
-//        }
-//        else if (pos==99){
-//            pos=78;
-//            return move_blocks(1,-2);
-//        }
+        else if (pos==56){
+            pos=18;
+            return move_blocks(-2,-4);
+        }
+        else if (pos==75){
+            pos=54;
+            return move_blocks(1,-2);
+        }
+        else if (pos==81){
+            pos=63;
+            return move_blocks(2,-2);
+        }
+        else if (pos==90){
+            pos=50;
+            return move_blocks(0,-4);
+        }
+        else if (pos==94){
+            pos=53;
+            return move_blocks(1,-4);
+        }
+        else if (pos==96){
+            pos=65;
+            return move_blocks(0,-3);
+        }
+        else if (pos==99){
+            pos=78;
+            return move_blocks(1,-2);
+        }
         else{
             return move_blocks(0,0);
         }
