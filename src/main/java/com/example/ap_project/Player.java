@@ -29,27 +29,6 @@ public class Player {
         }
         pos=1;
     }
-    public void move_right(int num) {
-        TranslateTransition side=new TranslateTransition(Duration.millis(500),this.id);
-        side.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
-        side.setByX(25*num);
-        side.setAutoReverse(false);
-        side.play();
-    }
-    public void move_left(int num) {
-        TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
-        left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
-        left.setByX(-25*num);
-        left.setAutoReverse(false);
-        left.play();
-    }
-    public void move_up() {
-        TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
-        up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
-        up.setByY(-36);
-        up.setAutoReverse(false);
-        up.play();
-    }
     public void move(int n){
         int i;
         boolean right;
@@ -60,16 +39,17 @@ public class Player {
             up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
             up.setByY(-35);
             up.setAutoReverse(false);
-            pos=pos+n;
+            pos=pos+remaining;
             if (n==1){
                 SequentialTransition total= new SequentialTransition(up,snakes_ladder());
                 total.play();
+                return;
             }
             else{
-                n=n-1;
+                remaining--;
                 TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
                 left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
-                left.setByX(25*n);
+                left.setByX(25*remaining);
                 left.setAutoReverse(false);
                 SequentialTransition total= new SequentialTransition(up,left,snakes_ladder());
                 total.play();
@@ -80,7 +60,7 @@ public class Player {
             TranslateTransition side=new TranslateTransition(Duration.millis(500),this.id);
             side.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
 
-            if ((10-remainder)<num) {
+            if ((10-remainder)<n) {
                 side.setByX(25 * (10 - remainder));
                 side.setDelay(Duration.millis(500));
                 side.setAutoReverse(false);
@@ -88,13 +68,11 @@ public class Player {
                 remaining=remaining-(10-remainder);
                 pos=pos+(10-remainder);
                 if (remaining==0){
-                    System.out.println("ooga");
                     SequentialTransition total= new SequentialTransition(side,snakes_ladder());
                     total.play();
                     return;
                 }
                 else{
-                    System.out.println("ooga booga");
                     TranslateTransition up=new TranslateTransition(Duration.millis(500),this.id);
                     up.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                     up.setByY(-35);
@@ -111,7 +89,6 @@ public class Player {
                         TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
                         left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
                         left.setByX(-25*remaining);
-                        left.setAutoReverse(false);
                         pos=pos+remaining;
                         SequentialTransition total= new SequentialTransition(side,up,left,snakes_ladder());
                         total.play();
@@ -119,9 +96,8 @@ public class Player {
                 }
             }
             else{
-                side.setByX(25 * num);
-                side.setAutoReverse(false);
-                pos=pos+num;
+                side.setByX(25 * remaining);
+                pos=pos+remaining;
                 SequentialTransition total=new SequentialTransition(side,snakes_ladder());
                 total.play();
             }
@@ -131,7 +107,7 @@ public class Player {
             TranslateTransition side=new TranslateTransition(Duration.millis(500),this.id);
             side.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
 
-            if ((20-remainder)<num) {
+            if ((20-remainder)<n) {
                 side.setByX(-25 * (20 - remainder));
                 side.setDelay(Duration.millis(500));
                 side.setAutoReverse(false);
@@ -170,10 +146,11 @@ public class Player {
                 }
             }
             else{
-                side.setByX(-25 * num);
+                side.setByX(-25 * n);
                 side.setAutoReverse(false);
-                side.play();
-                pos=pos+num;
+                pos=pos+remaining;
+                SequentialTransition total= new SequentialTransition(side,snakes_ladder());
+                total.play();
             }
         }
         else{
@@ -190,7 +167,7 @@ public class Player {
                 n=n-1;
                 TranslateTransition left=new TranslateTransition(Duration.millis(500),this.id);
                 left.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
-                left.setByX(-25*n);
+                left.setByX(-25*remaining);
                 left.setAutoReverse(false);
                 SequentialTransition total= new SequentialTransition(up,left,snakes_ladder());
                 total.play();
@@ -252,34 +229,34 @@ public class Player {
             pos=22;
             return move_blocks(-1,-2);
         }
-        else if (pos==56){
-            pos=18;
-            return move_blocks(-2,-4);
-        }
-        else if (pos==75){
-            pos=54;
-            return move_blocks(1,-2);
-        }
-        else if (pos==81){
-            pos=63;
-            return move_blocks(2,-2);
-        }
-        else if (pos==90){
-            pos=50;
-            return move_blocks(0,-4);
-        }
-        else if (pos==94){
-            pos=53;
-            return move_blocks(1,-4);
-        }
-        else if (pos==96){
-            pos=65;
-            return move_blocks(0,-3);
-        }
-        else if (pos==99){
-            pos=78;
-            return move_blocks(1,-2);
-        }
+//        else if (pos==56){
+//            pos=18;
+//            return move_blocks(-2,-4);
+//        }
+//        else if (pos==75){
+//            pos=54;
+//            return move_blocks(1,-2);
+//        }
+//        else if (pos==81){
+//            pos=63;
+//            return move_blocks(2,-2);
+//        }
+//        else if (pos==90){
+//            pos=50;
+//            return move_blocks(0,-4);
+//        }
+//        else if (pos==94){
+//            pos=53;
+//            return move_blocks(1,-4);
+//        }
+//        else if (pos==96){
+//            pos=65;
+//            return move_blocks(0,-3);
+//        }
+//        else if (pos==99){
+//            pos=78;
+//            return move_blocks(1,-2);
+//        }
         else{
             return move_blocks(0,0);
         }
@@ -287,7 +264,6 @@ public class Player {
 
     public TranslateTransition move_blocks(int right, int up){
         TranslateTransition ladder=new TranslateTransition(Duration.millis(500),this.id);
-        ladder.interpolatorProperty().set(Interpolator.SPLINE(.1, .1, .7, .7));
         ladder.setByX(25*right);
         ladder.setByY(-36*up);
         ladder.setAutoReverse(false);
